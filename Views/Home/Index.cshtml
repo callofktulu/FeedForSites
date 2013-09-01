@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Home Page / The Feed";
+}
+@model IEnumerable<FeedForSites.Models.FitFit>
+
+<div class="span8">
+    Say something: 
+    <form method="get" action="@Url.Action("Fitfit")" data-f4s-ajax="true" data-f4s-target="#fitfitResult">
+        <input id="fit" name="fit" type="text" />
+        <input type="submit" value="Fitfitle" />
+    </form>
+    @Html.Partial("_Fitfits", Model)
+</div>
+<div class="span4">
+    Modules and Ads
+
+</div>

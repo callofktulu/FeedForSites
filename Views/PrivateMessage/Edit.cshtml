@@ -1,0 +1,69 @@
+﻿@model FeedForSites.Models.PrivateMessage
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PrivateMessage</legend>
+
+        @Html.HiddenFor(model => model.PrivateMessageId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Text)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsRead)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsRead)
+            @Html.ValidationMessageFor(model => model.IsRead)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SenderUserId, "SenderUser")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("SenderUserId", String.Empty)
+            @Html.ValidationMessageFor(model => model.SenderUserId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReceiverUserId, "ReceiverUser")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ReceiverUserId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ReceiverUserId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

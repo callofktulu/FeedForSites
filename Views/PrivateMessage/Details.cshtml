@@ -1,0 +1,50 @@
+﻿@model FeedForSites.Models.PrivateMessage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PrivateMessage</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Text)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Text)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsRead)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsRead)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SenderUser.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SenderUser.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReceiverUser.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceiverUser.UserName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PrivateMessageId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

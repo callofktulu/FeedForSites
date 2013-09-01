@@ -1,0 +1,40 @@
+﻿@model IEnumerable<FeedForSites.Models.PrivateMessageViewModel>
+
+@{
+    ViewBag.Title = "Messages";
+}
+<div class="span8">
+    <div id="message-area">
+        You haven't selected a conversation yet.
+    </div>
+    <div id="loading">
+        Loading Messages...
+    </div>
+</div>
+<div class="span4">
+    <p>
+        @Html.ActionLink("New Message", "Create")
+    </p>
+    <ul>
+        @foreach (var item in Model) {
+    
+            <li>
+                @Ajax.ActionLink(item.SenderUser.UserName, "LoadMessages", new { id = item.SenderUserId }, new AjaxOptions { 
+                                                                                                HttpMethod = "GET",
+                                                                                                InsertionMode = InsertionMode.Replace,
+                                                                                                LoadingElementId = "loading",
+                                                                                                UpdateTargetId = "message-area"
+                                                                                        
+                                                                                            })
+                : 
+                @Html.DisplayFor(modelItem => item.Text)
+        
+            </li>
+        }
+    </ul>
+</div>
+
+
+
+
+

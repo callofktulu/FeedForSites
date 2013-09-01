@@ -1,0 +1,13 @@
+﻿@model List<FeedForSites.Models.PrivateMessage>
+<div>
+    <ul>
+        @foreach(var item in Model)
+        {
+            <li>
+            <b>@Html.DisplayFor(modelItem => item.SenderUser.UserName)</b> : 
+
+            @Html.DisplayFor(modelItem => item.Text) <small>@Html.DisplayFor(modelItem => item.Date)</small>
+            </li>
+        }
+    </ul>
+</div>

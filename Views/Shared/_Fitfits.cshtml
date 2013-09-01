@@ -1,0 +1,27 @@
+﻿@model IEnumerable<FeedForSites.Models.FitFit>
+<script src="~/Scripts/f4s.js"></script>
+<div id ="fitfitResult">
+    @if (Model != null)
+    { 
+        foreach (var item in Model)
+        { 
+            <div class="row" id="fitfit-@item.Id">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img src="http://placekitten.com/50/50" alt="User Name" class="thumbnail"/>
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">@Html.DisplayFor(modelItem => item.User.UserName)</h4>
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </div>
+                    @Html.ActionLink("Delete", "Delete", "FitFit", new { id = item.Id }, new { @class = "delete-link" })
+                </div>
+                <hr />
+            </div>
+        }
+    }
+</div>
+
+<div id="delete-dialog" title="Confirmation">
+<p>Are you sure you want to delete this fitfit?</p>
+</div>	
